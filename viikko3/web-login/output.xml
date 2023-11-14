@@ -1,0 +1,936 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20231114 21:05:09.985" rpa="false" schemaversion="4">
+<suite id="s1" name="Tests" source="/home/fsciorti/palautusrepositorio/viikko3/web-login/src/tests">
+<suite id="s1-s1" name="Home" source="/home/fsciorti/palautusrepositorio/viikko3/web-login/src/tests/home.robot">
+<kw name="Open And Configure Browser" library="resource" type="SETUP">
+<kw name="Evaluate" library="BuiltIn">
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231114 21:05:10.148" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7f74ad299c60&gt;</msg>
+<status status="PASS" starttime="20231114 21:05:10.148" endtime="20231114 21:05:10.148"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=chrome</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231114 21:05:10.149" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20231114 21:05:10.148" endtime="20231114 21:05:11.245"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20231114 21:05:11.245" endtime="20231114 21:05:11.246"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:10.147" endtime="20231114 21:05:11.246"/>
+</kw>
+<test id="s1-s1-t1" name="Click Login Link" line="8">
+<kw name="Go To Main Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231114 21:05:11.249" level="INFO">Opening url 'http://localhost:5001'</msg>
+<status status="PASS" starttime="20231114 21:05:11.248" endtime="20231114 21:05:11.900"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:11.248" endtime="20231114 21:05:11.901"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20231114 21:05:11.904" level="INFO">Clicking link 'Login'.</msg>
+<status status="PASS" starttime="20231114 21:05:11.902" endtime="20231114 21:05:13.551"/>
+</kw>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231114 21:05:14.067" level="INFO">Page title is 'Login'.</msg>
+<status status="PASS" starttime="20231114 21:05:13.553" endtime="20231114 21:05:14.067"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:13.552" endtime="20231114 21:05:14.068"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:11.247" endtime="20231114 21:05:14.069"/>
+</test>
+<test id="s1-s1-t2" name="Click Register Link" line="12">
+<kw name="Go To Main Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231114 21:05:14.073" level="INFO">Opening url 'http://localhost:5001'</msg>
+<status status="PASS" starttime="20231114 21:05:14.072" endtime="20231114 21:05:14.616"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:14.071" endtime="20231114 21:05:14.616"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>Register new user</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20231114 21:05:14.619" level="INFO">Clicking link 'Register new user'.</msg>
+<status status="PASS" starttime="20231114 21:05:14.617" endtime="20231114 21:05:16.259"/>
+</kw>
+<kw name="Register Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Register</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231114 21:05:16.774" level="INFO">Page title is 'Register'.</msg>
+<status status="PASS" starttime="20231114 21:05:16.261" endtime="20231114 21:05:16.774"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:16.260" endtime="20231114 21:05:16.774"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:14.070" endtime="20231114 21:05:16.775"/>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231114 21:05:16.777" endtime="20231114 21:05:17.342"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:10.003" endtime="20231114 21:05:17.342"/>
+</suite>
+<suite id="s1-s2" name="Login" source="/home/fsciorti/palautusrepositorio/viikko3/web-login/src/tests/login.robot">
+<kw name="Open And Configure Browser" library="resource" type="SETUP">
+<kw name="Evaluate" library="BuiltIn">
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231114 21:05:17.360" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7f74ad29b6d0&gt;</msg>
+<status status="PASS" starttime="20231114 21:05:17.359" endtime="20231114 21:05:17.360"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=chrome</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231114 21:05:17.362" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20231114 21:05:17.361" endtime="20231114 21:05:18.512"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20231114 21:05:18.513" endtime="20231114 21:05:18.513"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:17.359" endtime="20231114 21:05:18.514"/>
+</kw>
+<test id="s1-s2-t1" name="Login With Correct Credentials" line="8">
+<kw name="Create User And Go To Login Page" type="SETUP">
+<kw name="Create User" library="AppLibrary">
+<arg>kalle</arg>
+<arg>kalle123</arg>
+<status status="PASS" starttime="20231114 21:05:18.515" endtime="20231114 21:05:18.529"/>
+</kw>
+<kw name="Go To Login Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231114 21:05:18.531" level="INFO">Opening url 'http://localhost:5001/login'</msg>
+<status status="PASS" starttime="20231114 21:05:18.530" endtime="20231114 21:05:19.145"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:18.529" endtime="20231114 21:05:19.146"/>
+</kw>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231114 21:05:19.662" level="INFO">Page title is 'Login'.</msg>
+<status status="PASS" starttime="20231114 21:05:19.148" endtime="20231114 21:05:19.663"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:19.146" endtime="20231114 21:05:19.663"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:18.515" endtime="20231114 21:05:19.663"/>
+</kw>
+<kw name="Set Username">
+<arg>kalle</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:05:19.666" level="INFO">Typing text 'kalle' into text field 'username'.</msg>
+<status status="PASS" starttime="20231114 21:05:19.665" endtime="20231114 21:05:21.309"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:19.664" endtime="20231114 21:05:21.310"/>
+</kw>
+<kw name="Set Password">
+<arg>kalle123</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:05:21.313" level="INFO">Typing password into text field 'password'.</msg>
+<msg timestamp="20231114 21:05:22.373" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231114 21:05:22.948" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231114 21:05:21.312" endtime="20231114 21:05:22.948"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:21.310" endtime="20231114 21:05:22.948"/>
+</kw>
+<kw name="Submit Credentials">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231114 21:05:22.951" level="INFO">Clicking button 'Login'.</msg>
+<status status="PASS" starttime="20231114 21:05:22.950" endtime="20231114 21:05:25.106"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:22.949" endtime="20231114 21:05:25.107"/>
+</kw>
+<kw name="Login Should Succeed">
+<kw name="Main Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Ohtu Application main page</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231114 21:05:25.619" level="INFO">Page title is 'Ohtu Application main page'.</msg>
+<status status="PASS" starttime="20231114 21:05:25.109" endtime="20231114 21:05:25.620"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:25.108" endtime="20231114 21:05:25.620"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:25.107" endtime="20231114 21:05:25.620"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:18.514" endtime="20231114 21:05:25.621"/>
+</test>
+<test id="s1-s2-t2" name="Login With Incorrect Password" line="14">
+<kw name="Create User And Go To Login Page" type="SETUP">
+<kw name="Create User" library="AppLibrary">
+<arg>kalle</arg>
+<arg>kalle123</arg>
+<status status="PASS" starttime="20231114 21:05:25.623" endtime="20231114 21:05:25.636"/>
+</kw>
+<kw name="Go To Login Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231114 21:05:25.637" level="INFO">Opening url 'http://localhost:5001/login'</msg>
+<status status="PASS" starttime="20231114 21:05:25.636" endtime="20231114 21:05:26.177"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:25.636" endtime="20231114 21:05:26.177"/>
+</kw>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231114 21:05:26.692" level="INFO">Page title is 'Login'.</msg>
+<status status="PASS" starttime="20231114 21:05:26.178" endtime="20231114 21:05:26.692"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:26.177" endtime="20231114 21:05:26.692"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:25.623" endtime="20231114 21:05:26.692"/>
+</kw>
+<kw name="Set Username">
+<arg>kalle</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:05:26.695" level="INFO">Typing text 'kalle' into text field 'username'.</msg>
+<status status="PASS" starttime="20231114 21:05:26.694" endtime="20231114 21:05:28.317"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:26.693" endtime="20231114 21:05:28.317"/>
+</kw>
+<kw name="Set Password">
+<arg>kalle456</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:05:28.321" level="INFO">Typing password into text field 'password'.</msg>
+<msg timestamp="20231114 21:05:29.368" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231114 21:05:29.953" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231114 21:05:28.319" endtime="20231114 21:05:29.953"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:28.318" endtime="20231114 21:05:29.953"/>
+</kw>
+<kw name="Submit Credentials">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231114 21:05:29.956" level="INFO">Clicking button 'Login'.</msg>
+<status status="PASS" starttime="20231114 21:05:29.955" endtime="20231114 21:05:32.074"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:29.954" endtime="20231114 21:05:32.074"/>
+</kw>
+<kw name="Login Should Fail With Message">
+<arg>Invalid username or password</arg>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231114 21:05:32.589" level="INFO">Page title is 'Login'.</msg>
+<status status="PASS" starttime="20231114 21:05:32.077" endtime="20231114 21:05:32.589"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:32.076" endtime="20231114 21:05:32.589"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${message}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231114 21:05:33.623" level="INFO">Current page contains text 'Invalid username or password'.</msg>
+<status status="PASS" starttime="20231114 21:05:32.590" endtime="20231114 21:05:33.624"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:32.075" endtime="20231114 21:05:33.624"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:25.622" endtime="20231114 21:05:33.625"/>
+</test>
+<test id="s1-s2-t3" name="Login With Nonexistent Username" line="20">
+<kw name="Create User And Go To Login Page" type="SETUP">
+<kw name="Create User" library="AppLibrary">
+<arg>kalle</arg>
+<arg>kalle123</arg>
+<status status="PASS" starttime="20231114 21:05:33.628" endtime="20231114 21:05:33.641"/>
+</kw>
+<kw name="Go To Login Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231114 21:05:33.642" level="INFO">Opening url 'http://localhost:5001/login'</msg>
+<status status="PASS" starttime="20231114 21:05:33.642" endtime="20231114 21:05:34.170"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:33.641" endtime="20231114 21:05:34.171"/>
+</kw>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231114 21:05:34.685" level="INFO">Page title is 'Login'.</msg>
+<status status="PASS" starttime="20231114 21:05:34.172" endtime="20231114 21:05:34.686"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:34.171" endtime="20231114 21:05:34.686"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:33.628" endtime="20231114 21:05:34.686"/>
+</kw>
+<kw name="Set Username">
+<arg>pekka</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:05:34.689" level="INFO">Typing text 'pekka' into text field 'username'.</msg>
+<status status="PASS" starttime="20231114 21:05:34.688" endtime="20231114 21:05:36.304"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:34.687" endtime="20231114 21:05:36.304"/>
+</kw>
+<kw name="Set Password">
+<arg>kalle123</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:05:36.307" level="INFO">Typing password into text field 'password'.</msg>
+<msg timestamp="20231114 21:05:37.366" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231114 21:05:37.951" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231114 21:05:36.306" endtime="20231114 21:05:37.951"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:36.305" endtime="20231114 21:05:37.952"/>
+</kw>
+<kw name="Submit Credentials">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231114 21:05:37.955" level="INFO">Clicking button 'Login'.</msg>
+<status status="PASS" starttime="20231114 21:05:37.954" endtime="20231114 21:05:40.092"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:37.953" endtime="20231114 21:05:40.093"/>
+</kw>
+<kw name="Login Should Fail With Message">
+<arg>Invalid username or password</arg>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231114 21:05:40.605" level="INFO">Page title is 'Login'.</msg>
+<status status="PASS" starttime="20231114 21:05:40.095" endtime="20231114 21:05:40.606"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:40.094" endtime="20231114 21:05:40.606"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${message}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231114 21:05:41.638" level="INFO">Current page contains text 'Invalid username or password'.</msg>
+<status status="PASS" starttime="20231114 21:05:40.607" endtime="20231114 21:05:41.638"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:40.093" endtime="20231114 21:05:41.639"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:33.627" endtime="20231114 21:05:41.640"/>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231114 21:05:41.642" endtime="20231114 21:05:42.206"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:17.344" endtime="20231114 21:05:42.206"/>
+</suite>
+<suite id="s1-s3" name="Register" source="/home/fsciorti/palautusrepositorio/viikko3/web-login/src/tests/register.robot">
+<kw name="Open And Configure Browser" library="resource" type="SETUP">
+<kw name="Evaluate" library="BuiltIn">
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231114 21:05:42.214" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7f74ad008610&gt;</msg>
+<status status="PASS" starttime="20231114 21:05:42.213" endtime="20231114 21:05:42.214"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=chrome</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231114 21:05:42.215" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20231114 21:05:42.214" endtime="20231114 21:05:43.355"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20231114 21:05:43.355" endtime="20231114 21:05:43.356"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:42.213" endtime="20231114 21:05:43.357"/>
+</kw>
+<test id="s1-s3-t1" name="Register With Valid Username And Password" line="8">
+<kw name="Go To Register Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${REGISTER_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231114 21:05:43.363" level="INFO">Opening url 'http://localhost:5001/register'</msg>
+<status status="PASS" starttime="20231114 21:05:43.363" endtime="20231114 21:05:44.027"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:43.358" endtime="20231114 21:05:44.027"/>
+</kw>
+<kw name="Set Username" library="resource">
+<arg>pekka</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:05:44.030" level="INFO">Typing text 'pekka' into text field 'username'.</msg>
+<status status="PASS" starttime="20231114 21:05:44.029" endtime="20231114 21:05:45.703"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:44.028" endtime="20231114 21:05:45.704"/>
+</kw>
+<kw name="Set Password" library="resource">
+<arg>pekka123</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:05:45.707" level="INFO">Typing password into text field 'password'.</msg>
+<msg timestamp="20231114 21:05:46.763" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231114 21:05:47.334" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231114 21:05:45.705" endtime="20231114 21:05:47.334"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:45.704" endtime="20231114 21:05:47.335"/>
+</kw>
+<kw name="Set Password Confirmation" library="resource">
+<arg>pekka123</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>password_confirmation</arg>
+<arg>${password_confirmation}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:05:47.337" level="INFO">Typing password into text field 'password_confirmation'.</msg>
+<msg timestamp="20231114 21:05:48.397" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231114 21:05:48.958" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231114 21:05:47.336" endtime="20231114 21:05:48.958"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:47.335" endtime="20231114 21:05:48.958"/>
+</kw>
+<kw name="Submit Credentials" library="resource">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Register</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231114 21:05:48.961" level="INFO">Clicking button 'Register'.</msg>
+<status status="PASS" starttime="20231114 21:05:48.960" endtime="20231114 21:05:51.094"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:48.959" endtime="20231114 21:05:51.094"/>
+</kw>
+<kw name="Register Should Succeed" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Welcome to Ohtu Application!</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231114 21:05:51.608" level="INFO">Page title is 'Welcome to Ohtu Application!'.</msg>
+<status status="PASS" starttime="20231114 21:05:51.096" endtime="20231114 21:05:51.609"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:51.095" endtime="20231114 21:05:51.609"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:43.357" endtime="20231114 21:05:51.610"/>
+</test>
+<test id="s1-s3-t2" name="Register With Too Short Username And Valid Password" line="15">
+<kw name="Go To Register Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${REGISTER_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231114 21:05:51.613" level="INFO">Opening url 'http://localhost:5001/register'</msg>
+<status status="PASS" starttime="20231114 21:05:51.613" endtime="20231114 21:05:52.154"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:51.612" endtime="20231114 21:05:52.154"/>
+</kw>
+<kw name="Set Username" library="resource">
+<arg>pe</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:05:52.158" level="INFO">Typing text 'pe' into text field 'username'.</msg>
+<status status="PASS" starttime="20231114 21:05:52.156" endtime="20231114 21:05:53.782"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:52.155" endtime="20231114 21:05:53.782"/>
+</kw>
+<kw name="Set Password" library="resource">
+<arg>pekka123</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:05:53.785" level="INFO">Typing password into text field 'password'.</msg>
+<msg timestamp="20231114 21:05:54.832" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231114 21:05:55.417" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231114 21:05:53.784" endtime="20231114 21:05:55.418"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:53.783" endtime="20231114 21:05:55.418"/>
+</kw>
+<kw name="Set Password Confirmation" library="resource">
+<arg>pekka123</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>password_confirmation</arg>
+<arg>${password_confirmation}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:05:55.419" level="INFO">Typing password into text field 'password_confirmation'.</msg>
+<msg timestamp="20231114 21:05:56.469" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231114 21:05:57.048" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231114 21:05:55.418" endtime="20231114 21:05:57.049"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:55.418" endtime="20231114 21:05:57.049"/>
+</kw>
+<kw name="Submit Credentials" library="resource">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Register</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231114 21:05:57.052" level="INFO">Clicking button 'Register'.</msg>
+<status status="PASS" starttime="20231114 21:05:57.051" endtime="20231114 21:05:59.185"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:57.050" endtime="20231114 21:05:59.186"/>
+</kw>
+<kw name="Register Should Fail With Message" library="resource">
+<arg>Username too short</arg>
+<kw name="Register Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Register</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231114 21:05:59.698" level="INFO">Page title is 'Register'.</msg>
+<status status="PASS" starttime="20231114 21:05:59.189" endtime="20231114 21:05:59.699"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:59.188" endtime="20231114 21:05:59.699"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${message}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231114 21:06:00.732" level="INFO">Current page contains text 'Username too short'.</msg>
+<status status="PASS" starttime="20231114 21:05:59.700" endtime="20231114 21:06:00.733"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:59.187" endtime="20231114 21:06:00.733"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:51.611" endtime="20231114 21:06:00.734"/>
+</test>
+<test id="s1-s3-t3" name="Register With Valid Username And Invalid Password" line="22">
+<kw name="Go To Register Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${REGISTER_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231114 21:06:00.737" level="INFO">Opening url 'http://localhost:5001/register'</msg>
+<status status="PASS" starttime="20231114 21:06:00.737" endtime="20231114 21:06:01.269"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:00.736" endtime="20231114 21:06:01.269"/>
+</kw>
+<kw name="Set Username" library="resource">
+<arg>pekka</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:01.289" level="INFO">Typing text 'pekka' into text field 'username'.</msg>
+<status status="PASS" starttime="20231114 21:06:01.271" endtime="20231114 21:06:02.920"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:01.270" endtime="20231114 21:06:02.920"/>
+</kw>
+<kw name="Set Password" library="resource">
+<arg>pekkapekka</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:02.923" level="INFO">Typing password into text field 'password'.</msg>
+<msg timestamp="20231114 21:06:03.979" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231114 21:06:04.552" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231114 21:06:02.922" endtime="20231114 21:06:04.553"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:02.921" endtime="20231114 21:06:04.553"/>
+</kw>
+<kw name="Set Password Confirmation" library="resource">
+<arg>pekkapekka</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>password_confirmation</arg>
+<arg>${password_confirmation}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:04.557" level="INFO">Typing password into text field 'password_confirmation'.</msg>
+<msg timestamp="20231114 21:06:05.612" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231114 21:06:06.190" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231114 21:06:04.555" endtime="20231114 21:06:06.190"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:04.554" endtime="20231114 21:06:06.191"/>
+</kw>
+<kw name="Submit Credentials" library="resource">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Register</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:06.194" level="INFO">Clicking button 'Register'.</msg>
+<status status="PASS" starttime="20231114 21:06:06.192" endtime="20231114 21:06:08.322"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:06.191" endtime="20231114 21:06:08.323"/>
+</kw>
+<kw name="Register Should Fail With Message" library="resource">
+<arg>Invalid password</arg>
+<kw name="Register Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Register</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231114 21:06:08.836" level="INFO">Page title is 'Register'.</msg>
+<status status="PASS" starttime="20231114 21:06:08.325" endtime="20231114 21:06:08.837"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:08.324" endtime="20231114 21:06:08.837"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${message}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231114 21:06:09.869" level="INFO">Current page contains text 'Invalid password'.</msg>
+<status status="PASS" starttime="20231114 21:06:08.837" endtime="20231114 21:06:09.870"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:08.323" endtime="20231114 21:06:09.870"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:00.735" endtime="20231114 21:06:09.871"/>
+</test>
+<test id="s1-s3-t4" name="Register With Nonmatching Password And Password Confirmation" line="29">
+<kw name="Go To Register Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${REGISTER_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231114 21:06:09.875" level="INFO">Opening url 'http://localhost:5001/register'</msg>
+<status status="PASS" starttime="20231114 21:06:09.874" endtime="20231114 21:06:10.415"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:09.874" endtime="20231114 21:06:10.415"/>
+</kw>
+<kw name="Set Username" library="resource">
+<arg>pekka</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:10.418" level="INFO">Typing text 'pekka' into text field 'username'.</msg>
+<status status="PASS" starttime="20231114 21:06:10.417" endtime="20231114 21:06:12.037"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:10.416" endtime="20231114 21:06:12.037"/>
+</kw>
+<kw name="Set Password" library="resource">
+<arg>pekka123</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:12.041" level="INFO">Typing password into text field 'password'.</msg>
+<msg timestamp="20231114 21:06:13.098" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231114 21:06:13.664" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231114 21:06:12.039" endtime="20231114 21:06:13.664"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:12.038" endtime="20231114 21:06:13.665"/>
+</kw>
+<kw name="Set Password Confirmation" library="resource">
+<arg>kalle123</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>password_confirmation</arg>
+<arg>${password_confirmation}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:13.668" level="INFO">Typing password into text field 'password_confirmation'.</msg>
+<msg timestamp="20231114 21:06:14.720" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231114 21:06:15.295" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231114 21:06:13.666" endtime="20231114 21:06:15.296"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:13.665" endtime="20231114 21:06:15.296"/>
+</kw>
+<kw name="Submit Credentials" library="resource">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Register</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:15.299" level="INFO">Clicking button 'Register'.</msg>
+<status status="PASS" starttime="20231114 21:06:15.298" endtime="20231114 21:06:17.430"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:15.297" endtime="20231114 21:06:17.430"/>
+</kw>
+<kw name="Register Should Fail With Message" library="resource">
+<arg>Nonmatching password</arg>
+<kw name="Register Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Register</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231114 21:06:17.943" level="INFO">Page title is 'Register'.</msg>
+<status status="PASS" starttime="20231114 21:06:17.432" endtime="20231114 21:06:17.944"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:17.432" endtime="20231114 21:06:17.944"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${message}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231114 21:06:18.977" level="INFO">Current page contains text 'Nonmatching password'.</msg>
+<status status="PASS" starttime="20231114 21:06:17.944" endtime="20231114 21:06:18.978"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:17.431" endtime="20231114 21:06:18.978"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:09.873" endtime="20231114 21:06:18.979"/>
+</test>
+<test id="s1-s3-t5" name="Login After Successful Registration" line="36">
+<kw name="Go To Register Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${REGISTER_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231114 21:06:18.982" level="INFO">Opening url 'http://localhost:5001/register'</msg>
+<status status="PASS" starttime="20231114 21:06:18.982" endtime="20231114 21:06:19.516"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:18.981" endtime="20231114 21:06:19.516"/>
+</kw>
+<kw name="Set Username" library="resource">
+<arg>jaakko</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:19.518" level="INFO">Typing text 'jaakko' into text field 'username'.</msg>
+<status status="PASS" starttime="20231114 21:06:19.517" endtime="20231114 21:06:21.144"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:19.516" endtime="20231114 21:06:21.144"/>
+</kw>
+<kw name="Set Password" library="resource">
+<arg>jaakko123</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:21.148" level="INFO">Typing password into text field 'password'.</msg>
+<msg timestamp="20231114 21:06:22.206" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231114 21:06:22.782" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231114 21:06:21.146" endtime="20231114 21:06:22.782"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:21.145" endtime="20231114 21:06:22.783"/>
+</kw>
+<kw name="Set Password Confirmation" library="resource">
+<arg>jaakko123</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>password_confirmation</arg>
+<arg>${password_confirmation}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:22.786" level="INFO">Typing password into text field 'password_confirmation'.</msg>
+<msg timestamp="20231114 21:06:23.845" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231114 21:06:24.426" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231114 21:06:22.784" endtime="20231114 21:06:24.427"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:22.783" endtime="20231114 21:06:24.427"/>
+</kw>
+<kw name="Submit Credentials" library="resource">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Register</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:24.430" level="INFO">Clicking button 'Register'.</msg>
+<status status="PASS" starttime="20231114 21:06:24.429" endtime="20231114 21:06:26.543"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:24.428" endtime="20231114 21:06:26.544"/>
+</kw>
+<kw name="Go To Main Page And Log Out" library="resource">
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>Continue to main page</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:26.547" level="INFO">Clicking link 'Continue to main page'.</msg>
+<status status="PASS" starttime="20231114 21:06:26.545" endtime="20231114 21:06:28.169"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Logout</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:28.172" level="INFO">Clicking button 'Logout'.</msg>
+<status status="PASS" starttime="20231114 21:06:28.170" endtime="20231114 21:06:30.292"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:26.544" endtime="20231114 21:06:30.292"/>
+</kw>
+<kw name="Set Username" library="resource">
+<arg>jaakko</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:30.295" level="INFO">Typing text 'jaakko' into text field 'username'.</msg>
+<status status="PASS" starttime="20231114 21:06:30.294" endtime="20231114 21:06:31.930"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:30.293" endtime="20231114 21:06:31.930"/>
+</kw>
+<kw name="Set Password" library="resource">
+<arg>jaakko123</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:31.933" level="INFO">Typing password into text field 'password'.</msg>
+<msg timestamp="20231114 21:06:32.985" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231114 21:06:33.558" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231114 21:06:31.932" endtime="20231114 21:06:33.559"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:31.931" endtime="20231114 21:06:33.559"/>
+</kw>
+<kw name="Submit Login" library="resource">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:33.562" level="INFO">Clicking button 'Login'.</msg>
+<status status="PASS" starttime="20231114 21:06:33.561" endtime="20231114 21:06:35.680"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:33.560" endtime="20231114 21:06:35.680"/>
+</kw>
+<kw name="Login Should Succeed" library="resource">
+<kw name="Main Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Ohtu Application main page</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231114 21:06:36.194" level="INFO">Page title is 'Ohtu Application main page'.</msg>
+<status status="PASS" starttime="20231114 21:06:35.682" endtime="20231114 21:06:36.195"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:35.682" endtime="20231114 21:06:36.195"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:35.681" endtime="20231114 21:06:36.196"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:18.980" endtime="20231114 21:06:36.196"/>
+</test>
+<test id="s1-s3-t6" name="Login After Failed Registration" line="47">
+<kw name="Go To Register Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${REGISTER_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231114 21:06:36.200" level="INFO">Opening url 'http://localhost:5001/register'</msg>
+<status status="PASS" starttime="20231114 21:06:36.199" endtime="20231114 21:06:36.745"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:36.199" endtime="20231114 21:06:36.746"/>
+</kw>
+<kw name="Set Username" library="resource">
+<arg>mikko</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:36.749" level="INFO">Typing text 'mikko' into text field 'username'.</msg>
+<status status="PASS" starttime="20231114 21:06:36.747" endtime="20231114 21:06:38.384"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:36.746" endtime="20231114 21:06:38.384"/>
+</kw>
+<kw name="Set Password" library="resource">
+<arg>mikkomikko</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:38.388" level="INFO">Typing password into text field 'password'.</msg>
+<msg timestamp="20231114 21:06:39.442" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231114 21:06:40.023" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231114 21:06:38.386" endtime="20231114 21:06:40.024"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:38.385" endtime="20231114 21:06:40.024"/>
+</kw>
+<kw name="Set Password Confirmation" library="resource">
+<arg>mikkomikko</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>password_confirmation</arg>
+<arg>${password_confirmation}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:40.027" level="INFO">Typing password into text field 'password_confirmation'.</msg>
+<msg timestamp="20231114 21:06:41.087" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231114 21:06:41.662" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231114 21:06:40.025" endtime="20231114 21:06:41.662"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:40.024" endtime="20231114 21:06:41.662"/>
+</kw>
+<kw name="Submit Credentials" library="resource">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Register</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:41.665" level="INFO">Clicking button 'Register'.</msg>
+<status status="PASS" starttime="20231114 21:06:41.664" endtime="20231114 21:06:43.797"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:41.663" endtime="20231114 21:06:43.797"/>
+</kw>
+<kw name="Click Link Login" library="resource">
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:43.798" level="INFO">Clicking link 'Login'.</msg>
+<status status="PASS" starttime="20231114 21:06:43.797" endtime="20231114 21:06:45.420"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:43.797" endtime="20231114 21:06:45.421"/>
+</kw>
+<kw name="Set Username" library="resource">
+<arg>mikko</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:45.422" level="INFO">Typing text 'mikko' into text field 'username'.</msg>
+<status status="PASS" starttime="20231114 21:06:45.422" endtime="20231114 21:06:47.050"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:45.421" endtime="20231114 21:06:47.051"/>
+</kw>
+<kw name="Set Password" library="resource">
+<arg>mikkomikko</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:47.055" level="INFO">Typing password into text field 'password'.</msg>
+<msg timestamp="20231114 21:06:48.107" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231114 21:06:48.677" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231114 21:06:47.053" endtime="20231114 21:06:48.678"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:47.052" endtime="20231114 21:06:48.678"/>
+</kw>
+<kw name="Submit Login" library="resource">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231114 21:06:48.681" level="INFO">Clicking button 'Login'.</msg>
+<status status="PASS" starttime="20231114 21:06:48.680" endtime="20231114 21:06:50.813"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:48.679" endtime="20231114 21:06:50.813"/>
+</kw>
+<kw name="Login Should Fail With Message" library="resource">
+<arg>Invalid username or password</arg>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231114 21:06:51.326" level="INFO">Page title is 'Login'.</msg>
+<status status="PASS" starttime="20231114 21:06:50.816" endtime="20231114 21:06:51.327"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:50.815" endtime="20231114 21:06:51.327"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${message}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231114 21:06:52.361" level="INFO">Current page contains text 'Invalid username or password'.</msg>
+<status status="PASS" starttime="20231114 21:06:51.327" endtime="20231114 21:06:52.361"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:50.814" endtime="20231114 21:06:52.362"/>
+</kw>
+<status status="PASS" starttime="20231114 21:06:36.198" endtime="20231114 21:06:52.362"/>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231114 21:06:52.364" endtime="20231114 21:06:52.930"/>
+</kw>
+<status status="PASS" starttime="20231114 21:05:42.208" endtime="20231114 21:06:52.930"/>
+</suite>
+<status status="PASS" starttime="20231114 21:05:09.986" endtime="20231114 21:06:52.933"/>
+</suite>
+<statistics>
+<total>
+<stat pass="11" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="11" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1" name="Home">Tests.Home</stat>
+<stat pass="3" fail="0" skip="0" id="s1-s2" name="Login">Tests.Login</stat>
+<stat pass="6" fail="0" skip="0" id="s1-s3" name="Register">Tests.Register</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
